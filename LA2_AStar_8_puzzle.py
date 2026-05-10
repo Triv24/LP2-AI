@@ -90,6 +90,7 @@ for i in range(3) :
 solution = a_star(start)
 
 if solution:
+    print(f"Number of steps : {len(solution)}\n\n")
     for step in solution:
         for row in step:
             print(row)
