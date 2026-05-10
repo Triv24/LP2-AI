@@ -1,13 +1,21 @@
 #dfs 
 
-graph = { 
-    'A' : ['E' , 'B'],
-    'B' : ['C' , 'D' , 'A'],
-    'C' : ['E' , 'D'],
-    'D' : ['C' , 'B'],
-    'E' : ['A', 'C']
-}
-visited = set()                                                                                                             
+def create_graph():
+    vertices = int(input("Enter total number of vertices : "))
+
+    graph = {}
+
+    for i in range(vertices) :
+        vertex = input("Enter the Vertex : ")
+        adj_list = input(f"Enter the space separated adjacent vertices for the vertex '{vertex}'' : ").split()
+        graph[vertex] = adj_list
+        
+    return graph
+
+graph = create_graph()
+visited = set()  
+start = input("Enter the starting Node : ")
+goal = input("Enter the goal node : ")                                                                                                           
 
 def dfs (visited , graph , s,goal):
     
@@ -26,7 +34,7 @@ def dfs (visited , graph , s,goal):
             
             
 print('dfs:')            
-dfs(visited , graph , 'A','C')
+dfs(visited, graph, start, goal)
 
 #bfs
 
@@ -53,6 +61,6 @@ def bfs(vis , graph , s,goal):
                 
 
 print('bfs:')            
-bfs(vis , graph , 'A','C')
+bfs(vis , graph , start, goal)
     
     
